@@ -1,0 +1,14 @@
+<main>
+    <div *ngFor="let exercise of exercises">
+        <section>
+            <h3>Exercise: {{ exercise.Exercise }} x {{exercise.Repetitions}}</h3>
+            <div *ngFor="let rep of repetitionTimes[exercise.Exercise]; let repIndex = index">
+                <mat-checkbox (change)="startCounter(exercise, repIndex, $event)">
+                    <p>
+                        Repetition {{ repIndex + 1 }}- {{ rep.seconds }}:{{ rep.milliseconds }}
+                    </p>
+                </mat-checkbox>
+            </div>
+        </section>
+    </div>
+</main>

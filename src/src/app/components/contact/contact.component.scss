@@ -1,0 +1,43 @@
+@import '../style.scss';
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-around;
+    width: 100%;
+
+    @media (max-width: 888px) {
+        height: auto;
+    }
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100%;
+
+        @media (max-width: 888px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 888px) {
+        height: auto;
+    }
+    >div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 10px;
+    }
+}

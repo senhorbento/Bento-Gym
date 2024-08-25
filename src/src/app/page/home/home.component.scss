@@ -1,0 +1,12 @@
+article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100vh;
+
+    @media (max-width: 888px) {
+        height: auto;
+        width: auto;
+    }
+}

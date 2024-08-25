@@ -1,0 +1,74 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$bento-palette: (
+  50: #e5335d,
+  100: #ba35df,
+  200: #7431b0,
+  300: #40243c,
+  400: #61185c,
+  500: #27063d,
+  600: #0c0c13,
+  700: #880b41,
+  800: #ac2d4b,
+  900: #4a0726,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white)
+);
+
+
+$BentoPage-primary: mat.define-palette($bento-palette, 500, 300, 700);
+$BentoPage-accent: mat.define-palette($bento-palette, 200, 100, 400);
+$BentoPage-warn: mat.define-palette($bento-palette, 50);
+
+$BentoPage-theme: mat.define-light-theme((color: (primary: $BentoPage-primary,
+        accent: $BentoPage-accent,
+        warn: $BentoPage-warn,
+      )));
+
+@include mat.all-component-themes($BentoPage-theme);
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h2 {
+  color: map-get($bento-palette, 50);
+}
+
+h3 {
+  color: map-get($bento-palette, 100);
+}
+
+a {
+  color: map-get($bento-palette, 800);
+}
+
+html {
+  background-color: map-get($bento-palette, 600);
+  scroll-behavior: smooth;
+}
+
+p {
+  color: white;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+small {
+  color: rgb(255, 240, 240);
+  padding: 0 0 0 1em;
+  margin: 0;
+  font-size: 0.9em;
+}
