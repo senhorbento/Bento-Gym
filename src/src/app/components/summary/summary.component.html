@@ -1,14 +1,19 @@
 <main>
-    <div *ngFor="let exercise of exercises">
-        <section>
-            <h3>Exercise: {{ exercise.Exercise }} x {{exercise.Repetitions}}</h3>
-            <div *ngFor="let rep of repetitionTimes[exercise.Exercise]; let repIndex = index">
-                <mat-checkbox (change)="startCounter(exercise, repIndex, $event)">
-                    <p>
-                        Repetition {{ repIndex + 1 }}- {{ rep.seconds }}:{{ rep.milliseconds }}
-                    </p>
-                </mat-checkbox>
-            </div>
-        </section>
+    <div *ngFor="let day of exercises; let i = index">
+        <h2>Day {{i+1}}</h2>
+        <div *ngFor="let exercise of day">
+            <section>
+                <h3>Exercise: {{ exercise.Name }} x {{exercise.Repetitions}} <mat-icon
+                        *ngIf="isAllSeriesCompleted(exercise)">check</mat-icon></h3>
+                <div *ngFor="let rep of repetitions[exercise.Name]; let repIndex = index">
+                    <mat-checkbox [(ngModel)]="rep.isFinished" (click)="startCounter(exercise, repIndex)">
+                        <p>
+                            Repetition {{ repIndex + 1 }}- {{ rep.seconds }}:{{ rep.milliseconds }}
+                            <mat-icon *ngIf="rep.isFinished">check</mat-icon>
+                        </p>
+                    </mat-checkbox>
+                </div>
+            </section>
+        </div>
     </div>
 </main>

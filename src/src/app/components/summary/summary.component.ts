@@ -2,98 +2,68 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Constants } from '../../core/constants';
+import { MatIconModule } from '@angular/material/icon';
+import { Exercise } from '../../core/models/exercise';
+
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule, MatIconModule],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss'
 })
 
 export class SummaryComponent {
-  exercises = [
-    {
-      "Exercise": "Voador Frontal",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Flexão de Braço Solo",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Tríceps Paraleleo",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Bíceps Simutâneo HBC",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Remada Articulada Neutra",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Desenvolvimento Completo HBC",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Voador Invertido",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    },
-    {
-      "Exercise": "Abdominal Supra",
-      "Repetitions": 15,
-      "Series": 3,
-      "Rest": 30
-    }
-  ];
-
-  repetitionTimes: { [key: string]: { seconds: number, milliseconds: number }[] } = {};
+  Constants: Constants = new Constants();
+  exercises: Exercise[][] = [this.Constants._DAY1_, this.Constants._DAY2_];
+  repetitions: { [key: string]: { seconds: number, milliseconds: number, isFinished: boolean }[] } = {};
   timers: { [key: string]: any[] } = {};
 
   constructor() {
     this.initializeRepetitionTimes();
   }
 
+
   initializeRepetitionTimes() {
-    this.exercises.forEach(exercise => {
-      const times = [];
-      for (let i = 0; i < exercise.Series; i++) {
-        times.push({ minutes: 0, seconds: 0, milliseconds: 0 });
-      }
-      this.repetitionTimes[exercise.Exercise] = times;
-      this.timers[exercise.Exercise] = [];
+    this.repetitions = this.repetitions || {};
+    this.timers = this.timers || {};
+    this.exercises.forEach(dayExercises => {
+      dayExercises.forEach(exercise => {
+        const times = [];
+        for (let i = 0; i < exercise.Series; i++) {
+          times.push({ seconds: 0, milliseconds: 0, isFinished: false });
+        }
+        this.repetitions[exercise.Name] = times;
+        this.timers[exercise.Name] = [];
+      });
     });
   }
 
-  startCounter(exercise: any, repetitionIndex: number, event: any) {
-    let { seconds, milliseconds } = this.repetitionTimes[exercise.Exercise][repetitionIndex];
+  isAllSeriesCompleted(exercise: any): boolean {
+    const repetitions = this.repetitions[exercise.Exercise];
+    if (!Array.isArray(repetitions)) return false;
+    const allCompleted = repetitions.every(rep => rep.isFinished);
+    return allCompleted;
+  }
+
+  startCounter(exercise: Exercise, repetitionIndex: number) {
+    const startTime = Date.now();
     const interval = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      let { seconds, milliseconds, isFinished } = this.repetitions[exercise.Name][repetitionIndex];
+      isFinished = false;
+      seconds = elapsed;
       milliseconds += 10;
-      if (milliseconds === 1000) {
-        seconds++;
-        milliseconds = 0;
-      }
       if (seconds >= exercise.Rest) {
+        isFinished = true;
+        milliseconds = 0;
         clearInterval(interval);
       }
-      this.repetitionTimes[exercise.Exercise][repetitionIndex] = { seconds, milliseconds };
+      if (milliseconds >= 1000)
+        milliseconds = 0;
+      this.repetitions[exercise.Name][repetitionIndex] = { seconds, milliseconds, isFinished };
+      this.timers[exercise.Name][repetitionIndex] = interval;
     }, 10);
-
-    this.timers[exercise.Exercise][repetitionIndex] = interval;
   }
 }
