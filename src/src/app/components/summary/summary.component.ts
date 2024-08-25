@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { Constants } from '../../core/constants';
 import { MatIconModule } from '@angular/material/icon';
 import { Exercise } from '../../core/models/exercise';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule, MatIconModule],
+  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule, MatIconModule, MatCardModule],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss'
 })
@@ -40,8 +41,8 @@ export class SummaryComponent {
     });
   }
 
-  isAllSeriesCompleted(exercise: any): boolean {
-    const repetitions = this.repetitions[exercise.Exercise];
+  isAllSeriesCompleted(exercise: Exercise): boolean {
+    const repetitions = this.repetitions[exercise.Name];
     if (!Array.isArray(repetitions)) return false;
     const allCompleted = repetitions.every(rep => rep.isFinished);
     return allCompleted;

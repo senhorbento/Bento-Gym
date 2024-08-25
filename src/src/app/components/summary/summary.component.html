@@ -3,16 +3,26 @@
         <h2>Day {{i+1}}</h2>
         <div *ngFor="let exercise of day">
             <section>
-                <h3>Exercise: {{ exercise.Name }} x {{exercise.Repetitions}} <mat-icon
-                        *ngIf="isAllSeriesCompleted(exercise)">check</mat-icon></h3>
-                <div *ngFor="let rep of repetitions[exercise.Name]; let repIndex = index">
-                    <mat-checkbox [(ngModel)]="rep.isFinished" (click)="startCounter(exercise, repIndex)">
-                        <p>
-                            Repetition {{ repIndex + 1 }}- {{ rep.seconds }}:{{ rep.milliseconds }}
-                            <mat-icon *ngIf="rep.isFinished">check</mat-icon>
-                        </p>
-                    </mat-checkbox>
-                </div>
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <mat-checkbox [checked]="isAllSeriesCompleted(exercise)"
+                                [disabled]="isAllSeriesCompleted(exercise)">
+                                <h3>Exercise: {{ exercise.Name }} {{exercise.Series}} x {{exercise.Repetitions}} x
+                                    {{exercise.Rest}} sec</h3>
+                            </mat-checkbox>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-checkbox *ngFor="let rep of repetitions[exercise.Name]; let repIndex = index"
+                            [(ngModel)]="rep.isFinished" (click)="startCounter(exercise, repIndex)">
+                            <p>
+                                {{ repIndex + 1 }}. Rest Cronometer {{ rep.seconds }}:{{ rep.milliseconds }}
+                            </p>
+                        </mat-checkbox>
+                    </mat-card-content>
+                </mat-card>
+                <br>
             </section>
         </div>
     </div>

@@ -7,7 +7,7 @@ $bento-palette: (
   200: #7431b0,
   300: #40243c,
   400: #61185c,
-  500: #27063d,
+  500: #1d042e,
   600: #0c0c13,
   700: #880b41,
   800: #ac2d4b,
@@ -71,4 +71,8 @@ small {
   padding: 0 0 0 1em;
   margin: 0;
   font-size: 0.9em;
+}
+
+.mat-mdc-card {
+  background: map-get($bento-palette, 500) !important;
 }
