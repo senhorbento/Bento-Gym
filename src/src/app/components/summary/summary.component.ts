@@ -53,11 +53,10 @@ export class SummaryComponent {
     const interval = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
       let { seconds, milliseconds, isFinished } = this.repetitions[exercise.Name][repetitionIndex];
-      isFinished = false;
+      isFinished = true;
       seconds = elapsed;
       milliseconds += 10;
       if (seconds >= exercise.Rest) {
-        isFinished = true;
         milliseconds = 0;
         clearInterval(interval);
       }
