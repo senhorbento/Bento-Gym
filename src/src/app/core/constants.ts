@@ -85,6 +85,12 @@ export class Constants {
                 "Rest": 30
             },
             {
+                "Name": "Cadeira Abdutora",
+                "Repetitions": 15,
+                "Series": 3,
+                "Rest": 30
+            },
+            {
                 "Name": "Panturrilha Sentado",
                 "Repetitions": 15,
                 "Series": 3,

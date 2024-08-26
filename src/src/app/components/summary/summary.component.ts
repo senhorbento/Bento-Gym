@@ -6,11 +6,13 @@ import { Constants } from '../../core/constants';
 import { MatIconModule } from '@angular/material/icon';
 import { Exercise } from '../../core/models/exercise';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule, MatIconModule, MatCardModule],
+  imports: [MatCheckboxModule, FormsModule, ReactiveFormsModule, CommonModule, MatIconModule, MatCardModule, MatButtonModule, MatExpansionModule],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss'
 })

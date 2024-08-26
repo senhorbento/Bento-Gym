@@ -41,6 +41,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+h1 {
+  color: white;
+}
+
 h2 {
   color: map-get($bento-palette, 50);
 }
@@ -75,4 +79,14 @@ small {
 
 .mat-mdc-card {
   background: map-get($bento-palette, 500) !important;
+}
+
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: map-get($bento-palette, 900) !important;
+}
+
+mat-checkbox {
+  color: #fff !important;
 }

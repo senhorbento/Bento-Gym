@@ -1,29 +1,41 @@
 <main>
-    <div *ngFor="let day of exercises; let i = index">
-        <h2>Day {{i+1}}</h2>
-        <div *ngFor="let exercise of day">
-            <section>
-                <mat-card appearance="outlined">
-                    <mat-card-header>
-                        <mat-card-title>
-                            <mat-checkbox [checked]="isAllSeriesCompleted(exercise)"
-                                [disabled]="isAllSeriesCompleted(exercise)">
-                                <h3>{{ exercise.Name }} {{exercise.Series}} x {{exercise.Repetitions}} x
-                                    {{exercise.Rest}} sec</h3>
+    <h1>Bento Gym</h1>
+    <mat-accordion *ngFor="let day of exercises; let dayIndex = index">
+        <mat-expansion-panel color="accent">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h2>Day {{dayIndex+1}}</h2>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let exercise of day; let exerciseIndex = index">
+                <section>
+                    <mat-card appearance="outlined">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <mat-checkbox [checked]="isAllSeriesCompleted(exercise)"
+                                    [disabled]="isAllSeriesCompleted(exercise)">
+                                    <h3>{{exerciseIndex+1}}.{{ exercise.Name }} {{exercise.Series}} x
+                                        {{exercise.Repetitions}} x {{exercise.Rest}} sec</h3>
+                                </mat-checkbox>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-checkbox *ngFor="let rep of repetitions[exercise.Name]; let repIndex = index"
+                                [(ngModel)]="rep.isFinished" (click)="startCounter(exercise, repIndex)">
+                                <p>
+                                    {{ repIndex + 1 }}. Rest {{ rep.seconds }}:{{ rep.milliseconds }}
+                                </p>
                             </mat-checkbox>
-                        </mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <mat-checkbox *ngFor="let rep of repetitions[exercise.Name]; let repIndex = index"
-                            [(ngModel)]="rep.isFinished" (click)="startCounter(exercise, repIndex)">
-                            <p>
-                                {{ repIndex + 1 }}. Rest Cronometer {{ rep.seconds }}:{{ rep.milliseconds }}
-                            </p>
-                        </mat-checkbox>
-                    </mat-card-content>
-                </mat-card>
-                <br>
-            </section>
-        </div>
-    </div>
+                            <a mat-raised-button color="accent"
+                                [href]="'https://www.youtube.com/results?search_query=' + exercise.Name"
+                                target="_blank">See
+                                the exercise</a>
+                        </mat-card-content>
+                    </mat-card>
+                    <br>
+                </section>
+            </div>
+        </mat-expansion-panel>
+        <br>
+    </mat-accordion>
 </main>
