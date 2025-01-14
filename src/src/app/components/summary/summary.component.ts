@@ -19,7 +19,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 export class SummaryComponent {
   Constants: Constants = new Constants();
-  exercises: Exercise[][] = [this.Constants._DAY1_, this.Constants._DAY2_];
+  exercises: Exercise[][] = this.Constants._EXERCISES_;
   repetitions: { [key: string]: { seconds: number, milliseconds: number, isFinished: boolean }[] } = {};
   timers: { [key: string]: any[] } = {};
 
