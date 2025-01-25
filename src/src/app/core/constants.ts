@@ -13,87 +13,101 @@ export class Constants {
                 "Name": "Supino Inclinado com Halter 60º",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
-                "Name": "Supino Articulado Deitado",
+                "Name": "Supino Articulado",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "Deitado",
             },
             {
                 "Name": "Crucifixo Máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Cadeira Flexora",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Mesa Flexora",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Stiff Halter",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Panturrilha no Smith",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             }
         ],
         [
             {
-                "Name": "Remada Neutra",
+                "Name": "Puxada Neutra",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
-                "Name": "Remada Articulada 10 + 10",
+                "Name": "Remada Serrote",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Pulldown Barra",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
-            },
-            {
-                "Name": "Bíceps Alternado Com Rotação",
-                "Repetitions": 12,
-                "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Bíceps Corda",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
+            },
+            {
+                "Name": "Bíceps Alternado Com Rotação",
+                "Repetitions": 12,
+                "Series": 4,
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Bíceps Máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Abdominal Supra",
-                "Repetitions": 12,
-                "Series": 4,
-                "Rest": 60
+                "Repetitions": 20,
+                "Series": 3,
+                "Rest": 60,
+                "Observation" : "",
             }
         ],
         [
@@ -101,87 +115,122 @@ export class Constants {
                 "Name": "Cadeira Extensora",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Agachamento Hack",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Agachamento Sumô Smith",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Elevação pélvica na máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Glúteo na Máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Cadeira Abdutora",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Panturrilha na máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             }
         ],
         [
             {
-                "Name": "Manguito Rotador",
+                "Name": "Remada Pulley",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 0
+                "Rest": 60,
+                "Observation" : "Pronada",
+            },
+            {
+                "Name": "Remada Articulada",
+                "Repetitions": 12,
+                "Series": 4,
+                "Rest": 60,
+                "Observation" : "Pronada",
             },
             {
                 "Name": "Voador Invertido",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
-                "Name": "Puxada Romana",
+                "Name": "Extensão Lombar Máquina",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
-                "Name": "Remada Neutra",
+                "Name": "Tríceps Testa",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
-            },
-            {
-                "Name": "Tríceps Paralelo",
-                "Repetitions": 12,
-                "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Tríceps Corda",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
             },
             {
                 "Name": "Tríceps Francês",
                 "Repetitions": 12,
                 "Series": 4,
-                "Rest": 60
+                "Rest": 60,
+                "Observation" : "",
+            },
+            {
+                "Name": "Manguito Rotador",
+                "Repetitions": 12,
+                "Series": 4,
+                "Rest": 60,
+                "Observation" : "Opcional",
+            },
+            {
+                "Name": "Elevação Frontal",
+                "Repetitions": 12,
+                "Series": 4,
+                "Rest": 60,
+                "Observation" : "Opcional",
+            },
+            {
+                "Name": "Elevação Lateral",
+                "Repetitions": 12,
+                "Series": 4,
+                "Rest": 60,
+                "Observation" : "Opcional",
             }
         ],
     ];
